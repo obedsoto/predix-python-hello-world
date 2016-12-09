@@ -3,6 +3,9 @@ applications:
   - name: python-hello-world # rename at your convenience
     buildpack: https://github.com/cloudfoundry/python-buildpack.git # python build pack
     memory: 256M
-    random-route: true
+    random-route: true # creates a URL that includes the app name and random words
     # Some buildpacks, such as Python, that work on a variety of frameworks, do not attempt to provide a default start command.
     #command: python hello-world.py # required if Procfile is not provided
+    env:
+        USER_DEFINED_VAR: user_defined_variable
+        APP_ENV: production
